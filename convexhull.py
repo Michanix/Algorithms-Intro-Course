@@ -41,8 +41,8 @@ def plot_results(ch_p, points):
     patch = patches.PathPatch(path, facecolor='none', lw=2)
     ax.scatter(xi, yi)  # plotting the original points
     ax.add_patch(patch) # applying patch to draw borders
-    ax.set_xlim(-1, 11) # setting x, y limits for more beuty
-    ax.set_ylim(-1, 11)
+    ax.set_xlim(-1, max(xi) + 1) # adjusting x, y limits for more beuty
+    ax.set_ylim(-1, max(yi) + 1)
     plt.grid(True)
     plt.show()
     
@@ -77,7 +77,7 @@ def graham_scan(points):
 
 # point represented as tuple(x, y)
 # points represented as list of tuples
-points = [(i, randint(0, 9)) for i in range(1, 11)]
+points = [(i, randint(0, 9)) for i in range(1, 16)]
 
 conveh_hull = graham_scan(points)
 print('Conveh hull = {}'.format(conveh_hull))
